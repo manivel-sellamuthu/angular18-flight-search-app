@@ -7,11 +7,15 @@ import {
 
 import { Flight } from '../../core/models/flight.model';
 import { FlightService } from '../../core/services/flight.service';
+import { FlightCardComponent } from '../../shared/flight-card/flight-card.component';
 
 @Component({
   selector: 'app-flight-search',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule,
+    FlightCardComponent
+  ],
   templateUrl: './flight-search.component.html',
   styleUrl: './flight-search.component.scss'
 })
@@ -62,4 +66,8 @@ export class FlightSearchComponent {
       }
     });
   }
+
+  onFlightSelected(flight: Flight): void {
+  console.log('Selected flight:', flight);
+}
 }

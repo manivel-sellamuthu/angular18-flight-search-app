@@ -1,1 +1,65 @@
-<p>flight-card works!</p>
+<article class="flight-card">
+
+  <div class="airline-section">
+    <div class="airline-name">
+      {{ flight().airline }}
+    </div>
+
+    <span class="flight-number">
+      {{ flight().flightNumber }}
+    </span>
+  </div>
+
+  <div class="route-section">
+
+    <div class="airport">
+      <strong>{{ flight().departure.time }}</strong>
+      <span>{{ flight().departure.airport }}</span>
+      <small>{{ flight().departure.city }}</small>
+    </div>
+
+    <div class="journey">
+      <span>{{ flight().duration }}</span>
+
+      <div class="journey-line">
+        <span></span>
+      </div>
+
+      <small>
+        @if (flight().stops === 0) {
+          Non-stop
+        } @else {
+          {{ flight().stops }} stop
+          @if (flight().stops > 1) {
+            s
+          }
+        }
+      </small>
+    </div>
+
+    <div class="airport">
+      <strong>{{ flight().arrival.time }}</strong>
+      <span>{{ flight().arrival.airport }}</span>
+      <small>{{ flight().arrival.city }}</small>
+    </div>
+
+  </div>
+
+  <div class="flight-price">
+    <span class="price">
+      ₹{{ flight().price }}
+    </span>
+
+    <span class="cabin">
+      {{ flight().cabinClass }}
+    </span>
+
+    <button
+      type="button"
+      (click)="onSelect()"
+    >
+      View Details
+    </button>
+  </div>
+
+</article>

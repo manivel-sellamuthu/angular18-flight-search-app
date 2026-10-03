@@ -80,4 +80,31 @@
   .search-container {
     margin-top: 24px;
   }
+
+  .results-section {
+  margin-top: 32px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  span {
+    color: #667085;
+    font-size: 14px;
+  }
+}
+
+.flight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 }

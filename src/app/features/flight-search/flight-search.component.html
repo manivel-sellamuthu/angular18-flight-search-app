@@ -120,16 +120,22 @@
 }
 
 @if (!isLoading && !errorMessage && flights.length > 0) {
-  <div class="results-preview">
-    <h2>Flights Found: {{ flights.length }}</h2>
+  <section class="results-section">
 
-    @for (flight of flights; track flight.id) {
-      <div>
-        {{ flight.airline }} -
-        {{ flight.flightNumber }} -
-        ₹{{ flight.price }}
-      </div>
-    }
-  </div>
+    <div class="results-header">
+      <h2>Available Flights</h2>
+      <span>{{ flights.length }} flights found</span>
+    </div>
+
+    <div class="flight-list">
+      @for (flight of flights; track flight.id) {
+        <app-flight-card
+          [flight]="flight"
+          (flightSelected)="onFlightSelected($event)"
+        />
+      }
+    </div>
+
+  </section>
 }
 </section>
