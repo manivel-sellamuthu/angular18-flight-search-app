@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "airline": "IndiGo",
+    "flightNumber": "6E-501",
+    "departure": {
+      "airport": "MAA",
+      "city": "Chennai",
+      "time": "06:30"
+    },
+    "arrival": {
+      "airport": "DEL",
+      "city": "Delhi",
+      "time": "09:20"
+    },
+    "duration": "2h 50m",
+    "price": 5499,
+    "stops": 0,
+    "aircraft": "Airbus A320",
+    "cabinClass": "Economy"
+  },
+  {
+    "id": 2,
+    "airline": "Air India",
+    "flightNumber": "AI-440",
+    "departure": {
+      "airport": "MAA",
+      "city": "Chennai",
+      "time": "08:15"
+    },
+    "arrival": {
+      "airport": "DEL",
+      "city": "Delhi",
+      "time": "11:20"
+    },
+    "duration": "3h 05m",
+    "price": 6899,
+    "stops": 0,
+    "aircraft": "Airbus A321",
+    "cabinClass": "Economy"
+  },
+  {
+    "id": 3,
+    "airline": "Vistara",
+    "flightNumber": "UK-832",
+    "departure": {
+      "airport": "MAA",
+      "city": "Delhi",
+      "time": "10:45"
+    },
+    "arrival": {
+      "airport": "BOM",
+      "city": "Mumbai",
+      "time": "13:20"
+    },
+    "duration": "2h 35m",
+    "price": 7299,
+    "stops": 0,
+    "aircraft": "Airbus A320",
+    "cabinClass": "Economy"
+  },
+  {
+    "id": 4,
+    "airline": "IndiGo",
+    "flightNumber": "6E-712",
+    "departure": {
+      "airport": "MAA",
+      "city": "Chennai",
+      "time": "14:30"
+    },
+    "arrival": {
+      "airport": "BLR",
+      "city": "Bangalore",
+      "time": "15:35"
+    },
+    "duration": "1h 05m",
+    "price": 3299,
+    "stops": 0,
+    "aircraft": "Airbus A320",
+    "cabinClass": "Economy"
+  },
+  {
+    "id": 5,
+    "airline": "Air India",
+    "flightNumber": "AI-672",
+    "departure": {
+      "airport": "MAA",
+      "city": "Chennai",
+      "time": "16:10"
+    },
+    "arrival": {
+      "airport": "HYD",
+      "city": "Hyderabad",
+      "time": "19:45"
+    },
+    "duration": "3h 35m",
+    "price": 4599,
+    "stops": 1,
+    "aircraft": "Airbus A320",
+    "cabinClass": "Economy"
+  }
+]
