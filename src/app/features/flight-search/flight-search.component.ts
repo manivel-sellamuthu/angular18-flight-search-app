@@ -5,6 +5,9 @@ import {
   Validators
 } from '@angular/forms';
 
+import { Flight } from '../../core/models/flight.model';
+import { FlightService } from '../../core/services/flight.service';
+
 @Component({
   selector: 'app-flight-search',
   standalone: true,
@@ -14,6 +17,7 @@ import {
 })
 export class FlightSearchComponent {
   private readonly formBuilder = inject(FormBuilder);
+  private readonly flightService = inject(FlightService);
 
   readonly searchForm = this.formBuilder.group({
     from: ['', Validators.required],
@@ -30,12 +34,32 @@ export class FlightSearchComponent {
     ]
   });
 
+  flights: Flight[] = [];
+
+  isLoading = false;
+
+  errorMessage = '';
+
   onSearch(): void {
     if (this.searchForm.invalid) {
       this.searchForm.markAllAsTouched();
       return;
     }
 
-    console.log('Flight search:', this.searchForm.getRawValue());
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.flightService.getFlights().subscribe({
+      next: (flights) => {
+        this.flights = flights;
+        this.isLoading = false;
+      },
+
+      error: () => {
+        this.errorMessage =
+          'Unable to load flights. Please try again.';
+        this.isLoading = false;
+      }
+    });
   }
 }

@@ -107,4 +107,29 @@
     </button>
 
   </form>
+  @if (isLoading) {
+  <div class="status-message">
+    Loading flights...
+  </div>
+}
+
+@if (errorMessage) {
+  <div class="error-message">
+    {{ errorMessage }}
+  </div>
+}
+
+@if (!isLoading && !errorMessage && flights.length > 0) {
+  <div class="results-preview">
+    <h2>Flights Found: {{ flights.length }}</h2>
+
+    @for (flight of flights; track flight.id) {
+      <div>
+        {{ flight.airline }} -
+        {{ flight.flightNumber }} -
+        ₹{{ flight.price }}
+      </div>
+    }
+  </div>
+}
 </section>
