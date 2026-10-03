@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FlightSearchComponent } from './features/flight-search/flight-search.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [FlightSearchComponent],
+  template: '<app-flight-search />'
 })
-export class AppComponent {
-  title = 'angular18-flight-search-app';
-}
+export class AppComponent {}

@@ -1,1 +1,110 @@
-<p>flight-search works!</p>
+<section class="search-container">
+  <div class="search-header">
+    <h1>Find Your Flight</h1>
+    <p>Search and compare flights for your next journey.</p>
+  </div>
+
+  <form
+    [formGroup]="searchForm"
+    (ngSubmit)="onSearch()"
+    class="search-form"
+  >
+
+    <div class="form-group">
+      <label for="from">From</label>
+
+      <input
+        id="from"
+        type="text"
+        formControlName="from"
+        placeholder="Departure city"
+      />
+
+      @if (searchForm.controls.from.touched &&
+            searchForm.controls.from.invalid) {
+        <span class="error-message">
+          Departure city is required.
+        </span>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="to">To</label>
+
+      <input
+        id="to"
+        type="text"
+        formControlName="to"
+        placeholder="Arrival city"
+      />
+
+      @if (searchForm.controls.to.touched &&
+            searchForm.controls.to.invalid) {
+        <span class="error-message">
+          Arrival city is required.
+        </span>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="departureDate">Departure Date</label>
+
+      <input
+        id="departureDate"
+        type="date"
+        formControlName="departureDate"
+      />
+
+      @if (searchForm.controls.departureDate.touched &&
+            searchForm.controls.departureDate.invalid) {
+        <span class="error-message">
+          Departure date is required.
+        </span>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="returnDate">Return Date</label>
+
+      <input
+        id="returnDate"
+        type="date"
+        formControlName="returnDate"
+      />
+
+      @if (searchForm.controls.returnDate.touched &&
+            searchForm.controls.returnDate.invalid) {
+        <span class="error-message">
+          Return date is required.
+        </span>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="passengers">Passengers</label>
+
+      <input
+        id="passengers"
+        type="number"
+        formControlName="passengers"
+        min="1"
+        max="9"
+      />
+
+      @if (searchForm.controls.passengers.touched &&
+            searchForm.controls.passengers.invalid) {
+        <span class="error-message">
+          Passengers must be between 1 and 9.
+        </span>
+      }
+    </div>
+
+    <button
+      type="submit"
+      class="search-button"
+    >
+      Search Flights
+    </button>
+
+  </form>
+</section>
