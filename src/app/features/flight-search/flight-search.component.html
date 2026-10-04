@@ -119,23 +119,88 @@
   </div>
 }
 
-@if (!isLoading && !errorMessage && flights.length > 0) {
+@if (!isLoading && !errorMessage) {
+
   <section class="results-section">
 
     <div class="results-header">
-      <h2>Available Flights</h2>
-      <span>{{ flights.length }} flights found</span>
-    </div>
+      <div>
+        <h2>Available Flights</h2>
 
-    <div class="flight-list">
-      @for (flight of flights; track flight.id) {
-        <app-flight-card
-          [flight]="flight"
-          (flightSelected)="onFlightSelected($event)"
-        />
+        @if (filteredFlights$ | async; as flights) {
+          <span>{{ flights.length }} flights found</span>
+        }
+      </div>
+
+      @if ((flights$ | async)?.length) {
+        <div class="filters">
+
+          <div class="filter-group">
+            <label for="priceFilter">
+              Maximum Price
+            </label>
+
+            <select
+              id="priceFilter"
+              (change)="onPriceChange($event)"
+            >
+              <option value="">Any price</option>
+              <option value="4000">₹4,000</option>
+              <option value="5000">₹5,000</option>
+              <option value="6000">₹6,000</option>
+              <option value="7000">₹7,000</option>
+              <option value="8000">₹8,000</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="stopsFilter">
+              Stops
+            </label>
+
+            <select
+              id="stopsFilter"
+              (change)="onStopsChange($event)"
+            >
+              <option value="">Any stops</option>
+              <option value="0">Non-stop</option>
+              <option value="1">1 Stop</option>
+            </select>
+          </div>
+
+        </div>
       }
     </div>
 
+    <div class="flight-list">
+
+      @if (filteredFlights$ | async; as flights) {
+
+        @if (flights.length > 0) {
+
+          @for (flight of flights; track flight.id) {
+            <app-flight-card
+              [flight]="flight"
+              (flightSelected)="onFlightSelected($event)"
+            />
+          }
+
+        } @else {
+
+          <div class="no-results">
+            <h3>No flights found</h3>
+            <p>
+              Try changing your price or stops filters.
+            </p>
+          </div>
+
+        }
+
+      }
+
+    </div>
+
   </section>
+
 }
 </section>

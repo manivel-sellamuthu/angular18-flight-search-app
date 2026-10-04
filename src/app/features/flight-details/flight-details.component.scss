@@ -1,0 +1,155 @@
+.details-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.details-card {
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eaecf0;
+
+  h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+  }
+
+  p {
+    margin: 0;
+    color: #667085;
+  }
+}
+
+.price {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.route-details {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 0;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .time {
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  strong {
+    font-size: 18px;
+  }
+
+  span:last-child {
+    color: #667085;
+  }
+}
+
+.journey-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #667085;
+}
+
+.journey-line {
+  width: 100%;
+  height: 2px;
+  background: #d0d5dd;
+}
+
+.additional-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid #eaecf0;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    span {
+      color: #667085;
+      font-size: 13px;
+    }
+
+    strong {
+      font-size: 15px;
+    }
+  }
+}
+
+.status-message,
+.error-message {
+  padding: 24px;
+  text-align: center;
+}
+
+.error-message {
+  color: #dc2626;
+}
+
+@media (max-width: 700px) {
+  .details-card {
+    padding: 20px;
+  }
+
+  .route-details {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .location {
+    align-items: center;
+  }
+
+  .additional-details {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .details-header {
+    align-items: flex-start;
+  }
+
+  .price {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 450px) {
+  .additional-details {
+    grid-template-columns: 1fr;
+  }
+}

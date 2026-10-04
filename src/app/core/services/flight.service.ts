@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 import { Flight } from '../models/flight.model';
 
@@ -14,5 +14,13 @@ export class FlightService {
 
   getFlights(): Observable<Flight[]> {
     return this.http.get<Flight[]>(this.apiUrl);
+  }
+
+  getFlightById(id: number): Observable<Flight | undefined> {
+    return this.getFlights().pipe(
+      map((flights: Flight[]) =>
+        flights.find((flight: Flight) => flight.id === id)
+      )
+    );
   }
 }

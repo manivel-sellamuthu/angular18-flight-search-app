@@ -1,0 +1,116 @@
+<main class="details-container">
+
+  <a
+    routerLink="/search"
+    class="back-link"
+  >
+    ← Back to Search Results
+  </a>
+
+  @if (isLoading) {
+    <div class="status-message">
+      Loading flight details...
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+
+  @if (!isLoading && flight) {
+
+    <section class="details-card">
+
+      <div class="details-header">
+        <div>
+          <h1>{{ flight.airline }}</h1>
+          <p>{{ flight.flightNumber }}</p>
+        </div>
+
+        <div class="price">
+          ₹{{ flight.price }}
+        </div>
+      </div>
+
+      <div class="route-details">
+
+        <div class="location">
+          <span class="time">
+            {{ flight.departure.time }}
+          </span>
+
+          <strong>
+            {{ flight.departure.airport }}
+          </strong>
+
+          <span>
+            {{ flight.departure.city }}
+          </span>
+        </div>
+
+        <div class="journey-info">
+          <span>{{ flight.duration }}</span>
+
+          <div class="journey-line"></div>
+
+          @if (flight.stops === 0) {
+            <span>Non-stop</span>
+          } @else {
+            <span>{{ flight.stops }} stop(s)</span>
+          }
+        </div>
+
+        <div class="location">
+          <span class="time">
+            {{ flight.arrival.time }}
+          </span>
+
+          <strong>
+            {{ flight.arrival.airport }}
+          </strong>
+
+          <span>
+            {{ flight.arrival.city }}
+          </span>
+        </div>
+
+      </div>
+
+      <div class="additional-details">
+
+        <div>
+          <span>Aircraft</span>
+          <strong>{{ flight.aircraft }}</strong>
+        </div>
+
+        <div>
+          <span>Cabin Class</span>
+          <strong>{{ flight.cabinClass }}</strong>
+        </div>
+
+        <div>
+          <span>Flight Number</span>
+          <strong>{{ flight.flightNumber }}</strong>
+        </div>
+
+        <div>
+          <span>Stops</span>
+
+          <strong>
+            @if (flight.stops === 0) {
+              Non-stop
+            } @else {
+              {{ flight.stops }}
+            }
+          </strong>
+        </div>
+
+      </div>
+
+    </section>
+
+  }
+
+</main>
